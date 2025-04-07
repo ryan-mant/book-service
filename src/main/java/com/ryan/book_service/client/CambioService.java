@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
-@FeignClient(name = "cambio-service", url = "http://localhost:8000")
+@FeignClient(name = "cambio-service")
 public interface CambioService {
     @GetMapping("/api/cambio")
     public ResponseEntity<CambioResponseDto> getCambio(

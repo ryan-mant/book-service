@@ -30,8 +30,7 @@ public class BookController {
         var book = repository.findById(id).orElseThrow(EntityNotFoundException::new);
         var port = environment.getProperty("local.server.port");
         var cambioResponseDto = cambioService.getCambio(book.getPrice(), "USD", currency);
-        book.setEnvironment(port);
-        assert cambioResponseDto != null;
+        book.setEnvironment("book port: " + port + " cambio port: " + Objects.requireNonNull(cambioResponseDto.getBody()).environment());
         book.setPrice(Objects.requireNonNull(cambioResponseDto.getBody()).convertedValue());
         return ResponseEntity.ok(book);
     }
