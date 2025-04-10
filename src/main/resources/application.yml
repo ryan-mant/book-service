@@ -38,3 +38,10 @@ spring:
     user: postgres
     password: root@123
     enabled: true
+springdoc:
+  show-actuator: true
+  api-docs:
+    path: book-service/v3/api-docs
+  swagger-ui:
+    config-url: /book-service/v3/api-docs/swagger-config
+    url: /book-service/v3/api-docs
